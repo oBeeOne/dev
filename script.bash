@@ -14,7 +14,7 @@ echo "Bonjour."
 
 read -p "Quel est votre nom ? " nom
 
-if [ ${nom,,} != "maitre" ]
+if [ ${nom,,} != "maitre" ] && [ ${nom,,} != "master" ]
 then
     choice=0
     let "choice=(($RANDOM % 4))"
@@ -36,7 +36,8 @@ then
 else 
     echo "Haha ! Bien essayé LOOSER !"
     ans=0
-    while [ ${nom,,} == "maitre" ]
+    #while [ ${nom,,} == "maitre" -o ${nom,,} == "master" ]
+    while [[ ${nom,,} == "maitre" || ${nom,,} == "master" ]]
     do 
         echo ${string[$ans]}
         read -p "Essaye encore... Quel est ton nom ? " nom
